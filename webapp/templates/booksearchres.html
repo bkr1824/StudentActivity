@@ -1,0 +1,39 @@
+{% extends 'u_base.html' %}
+{% block content %} 
+
+<center>
+
+<h2>Search results from library
+<hr>
+</h2>
+<table width="80%" id="tab" >
+<tr><th>#<th>Book Title<th>Author<th>ISBN<th>Location in library
+{% for d1 in data1 %}
+
+<TR><TD>{{forloop.counter}}<TD>{{d1.title}}<TD>{{d1.author}}<TD>{{d1.ISBN}}<TD>{{d1.location}}
+{% endfor %}
+
+</table>
+<br>
+<h2>Search results from book stores
+<hr>
+</h2>
+<form method="post" action="/purchasebooks/">
+{% csrf_token %}
+	<table width="80%" id="tab" >
+<tr><th>#<th>Book Title<th>Author<th>ISBN<th>Book Store<th>Cost<th>Select to purchase
+{% for d1 in data2 %}
+
+<TR><TD>{{forloop.counter}}<TD>{{d1.title}}<TD>{{d1.author}}<TD>{{d1.ISBN}}<TD>{{d1.bookstore}}<TD>${{d1.cost}}/-
+<td><input class="form-control"   type="checkbox" name="{{d1.id}}"> 
+
+{% endfor %}
+
+<tr><td><td><td><td><td><td><td>
+<input class="form-control"   type="submit" value="Purchase">
+
+</table>
+</form>
+
+
+{% endblock %}

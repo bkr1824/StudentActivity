@@ -1,0 +1,50 @@
+{% extends 'u_base.html' %}
+{% block content %}
+
+<center>
+<h2>View Profile</h2>
+<br>
+<table id="tab" width="50%">
+<tr>
+	<th>First Name</td>
+	<td>{{ data.fname }}</td>
+</tr>
+<tr>
+	<th>Last Name</td>
+	<td>{{ data.lname }}</td>
+</tr>
+<tr>
+	<th>Email</td>
+	<td>{{ data.email }}</td>
+</tr>
+<tr>
+	<th>Phone</td>
+	<td>{{ data.phone}}</td>
+</tr>
+<tr>
+	<th>Address</td>
+	<td>{{ data.address}}</td>
+</tr>
+<tr>
+	<th>City</td>
+	<td>{{ data.city}}</td>
+</tr>
+<tr>
+	<th>State</td>
+	<td>{{ data.state}}</td>
+</tr>
+<tr>
+	<th>Ziip</td>
+	<td>{{ data.zip}}</td>
+</tr>
+
+</tr>
+</table>
+<br><br>
+<a href="/updateprofile"><h3>Update Profile</h3></a>
+<br>
+<a href="/updatepwd"><h3>Change Password</h3></a>
+
+
+<br><br>
+{% endblock %}

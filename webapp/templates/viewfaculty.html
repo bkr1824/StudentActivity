@@ -1,0 +1,45 @@
+
+{% extends 'a_base.html' %}
+{% block content %}
+<center>
+	<font size="" color="#ff0000"><strong>{{msg}}</strong></font>
+	
+	
+
+<h2>Add Faculty</h2><br>
+
+
+<form method="post" action="/addfaculty/">
+	{% csrf_token %} 
+<table id="tab">
+                    <tr><td><input class="form-control"  type="text" name="fname" placeholder="First Name" required="required"   size="50"  ></input>
+                    <td><input class="form-control"  type="text" name="lname" placeholder="Last Name" required="required"   size="50"  ></input>
+                    <tr><td><input class="form-control"  type="e_mail" name="mail" placeholder="Email, example@example.com" required="required"   size="50"  onblur="validate1()"></input>
+                    <td><input class="form-control"  type="text" name="phone" placeholder="Phone" required="required"  size="50"   onblur="validate3()"></input>
+
+					
+                   
+                    <tr><td><input class="form-control"  type="text" name="addr" placeholder="Address" required="required"  size="50"   onblur="validate3()"></input>
+                   <td><input class="form-control"  type="text" name="dept" placeholder="Department" required="required"  size="50"   onblur="validate3()"></input>
+                   
+                   
+					<tr><td><td><input type="submit" class="form-control" value="Add"  size="50"  >
+                
+</table>
+</form><br>
+<h2>View Faculty</h2>
+
+
+<table width="90%" id="tab" >
+<tr><th>#<th>First Name<th>Last Name<th>Email<th>Phone<th>Address<th>Department
+{% for d1 in data %}
+
+<TR><TD>{{forloop.counter}}<TD>{{d1.fname}}<TD>{{d1.lname}}<TD>{{d1.email}}<TD>{{d1.phone}}<TD>{{d1.address}}<TD>{{d1.department}}
+
+{% endfor %}
+
+</table>
+
+
+
+{% endblock %}

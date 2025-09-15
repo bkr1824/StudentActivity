@@ -1,0 +1,26 @@
+{% extends 'u_base.html' %}
+{% block content %} 
+
+<h2>Roommate Search results
+<hr>
+</h2>
+
+<center>
+
+
+
+<table width="100%" id="tab" >
+<tr><th>#<th>First Name<th>Last Name<th>Email<th>Phone<th>Gender<th>Move in date<th>Cost 
+{% for d1 in data %}
+
+<TR><TD>{{forloop.counter}}<TD>{{d1.fname}}<TD>{{d1.lname}}<TD>{{d1.email}}<TD>{{d1.phone}}<TD>{{d1.gender}}
+
+<TD>{{d1.dat_e}}<TD>${{d1.cost}}
+
+
+{% endfor %}
+
+</table>
+
+
+{% endblock %}

@@ -1,0 +1,40 @@
+{% extends 'u_base.html' %}
+{% block content %}
+<font size="+1" color="red">{{msg}}
+<center>
+</font>
+<h2>Purchase Meal Plan</h2>
+<br>
+
+<form class="w3-container" method="post" action="/mealplan/">
+	{% csrf_token %} 
+<table width="50%">
+  <tr><td>Select Your Meal Plan
+<select name="plan"  class="form-control"  >
+	<option value="monthly" selected>Monthly Plan
+	<option value="sem">For Total Semister
+</select>
+
+
+
+
+
+      
+					<tr><td>
+					<button type = "submit" onclick="return matchPassword()">Purchase</button>  
+                
+</table>
+</form>
+<br>
+<hr><br>
+<h3>Your Meal Plans</h3>
+<table width="70%" id="tab" >
+<tr><th>#<th>Name<th>Plan<th>Valid from<th>Valid to
+{% for d1 in data %}
+
+<TR><TD>{{forloop.counter}}<TD>{{d1.fname}}<TD>{{d1.plan}}<TD>{{d1.fro_m}}<TD>{{d1.t_o}}
+
+{% endfor %}
+
+</table>
+{% endblock %}

@@ -1,0 +1,22 @@
+{% extends 'u_base.html' %}
+{% block content %} 
+
+<h2>People search
+<hr>
+</h2>
+
+<center>
+<form method="post" action="/booksearch/">
+	{% csrf_token %} 
+<table id="" border width="50%">
+                    <tr><td><input class="form-control"  type="text" name="fname" placeholder="First Name" required="required"   size="50"  ></input>
+                    <td><input class="form-control"  type="text" name="lname" placeholder="Last Name" required="required"   size="50"  ></input>
+                    <tr>  <td colspan=2><input class="form-control"  type="text" name="dept" placeholder="Department" required="required"  size="50"   onblur="validate3()"></input>
+                   
+                   
+					<tr><td><td><input type="submit" class="form-control" value="Search"  size="50"  >
+                
+</table>
+</form><br>
+
+{% endblock %}

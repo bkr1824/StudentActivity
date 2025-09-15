@@ -1,0 +1,41 @@
+
+{% extends 'a_base.html' %}
+{% block content %}
+<center>
+	<font size="" color="#ff0000"><strong>{{msg}}</strong></font>
+	<b>
+	
+
+<h2>Add Events</h2><br>
+<form method="post" action="/addevents/">
+	{% csrf_token %} 
+				<table id="tab">
+
+                    <tr><td><input class="form-control"  type="text" name="name" placeholder="Event Name" required="required"   size="50"  ></input>
+                    <td>
+					<input class="form-control"  type="text" name="des" placeholder="Description" required="required"   size="50"  ></input>
+                    <tr>
+					<td>Select Date of the Event
+					<input class="form-control"  type="date" name="dat_e"  required="required"   size="50"  onblur="validate1()"></input>
+					<td><br><input type="submit" class="form-control" value="Add"  size="50"  >
+                
+</table>
+</form><br>
+
+<br>
+<hr><br>
+
+<h3>View Events</h3>
+
+<table width="100%" id="tab" >
+<tr><th>#<th>Name<th width="60%">Description<th>Date of the Event
+
+{% for d1 in data %}
+
+<TR><TD>{{forloop.counter}}<TD>{{d1.name}}<TD >{{d1.description}}<TD>{{d1.dat_e}}
+
+{% endfor %}
+
+</table>
+
+{% endblock %}

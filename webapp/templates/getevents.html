@@ -1,0 +1,36 @@
+{% extends 'u_base.html' %}
+{% block content %} 
+{{msg}}
+
+<h2>Event Search
+<hr>
+</h2>
+
+<center>
+<form method="post" action="/getevents/">
+	{% csrf_token %} 
+<table id="" border width="50%">
+                    <tr><td>Select Dates
+					<tr><td><input class="form-control"  type="date" name="dt1" required ></input>
+		            <tr>        <td><input class="form-control"  type="date" name="dt2" required></input>
+                   
+                   
+					<tr><td><input type="submit" class="form-control" value="Get Events"  size="50"  >
+                
+</table>
+</form><br>
+
+<br>
+<hr><br>
+<h3>Booked Events</h3><br>
+<table width="90%" id="tab" >
+<tr><th>#<th>Event Name<th width="60%">Description <th>Event Date
+{% for d1 in data %}
+
+<TR><TD>{{forloop.counter}}<TD>{{d1.name}}<TD>{{d1.description}}<TD>{{d1.dat_e}}
+
+{% endfor %}
+
+</table>
+
+{% endblock %}

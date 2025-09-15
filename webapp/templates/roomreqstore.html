@@ -1,0 +1,46 @@
+{% extends 'u_base.html' %}
+{% block content %} 
+{{msg}}
+<center>
+<h2>Register for room 
+<hr>
+</h2>
+
+
+<form method="post" action="/roommate/">
+	{% csrf_token %} 
+<table id="" border width="50%">
+                    <tr><td>Date to move 
+					<input class="form-control"  type="date" name="dat_e"  required="required"   size="50"  ></input>
+                    <tr><td>Cost you can afford <input class="form-control"  type="number" name="cost" min=1 required="required"   size="50"  ></input>
+                   
+                   
+					<tr><td><input type="submit" class="form-control" value="Request"  size="50"  >
+                
+</table>
+</form><br><br>
+
+<h2>Search for Roommate 
+<hr>
+</h2>
+
+<center>
+<form method="post" action="/searchroommate/">
+	{% csrf_token %} 
+<table id="" border width="50%">
+                    <tr><td>Date to move 
+					<input class="form-control"  type="date" name="dat_e"  required="required"   size="50"  ></input>
+                    <tr><td>Expected Cost<input class="form-control"  type="number" name="cost" min=1 required="required"   size="50"  ></input>
+                   <tr><td>Gender
+					<select name="gen"class="form-control" width="100%">
+						<option value="male" selected>Male
+						<option value="female">Female
+					</select>
+                   
+                   
+					<tr><td><input type="submit" class="form-control" value="Request"  size="50"  >
+                
+</table>
+</form><br>
+
+{% endblock %}

@@ -1,0 +1,53 @@
+{% extends 'u_base.html' %}
+{% block content %} 
+
+<center>
+<h2>
+Purchase a bus ticket
+<hr>
+</h2>
+
+
+<form method="post" action="/bookbusaction/">
+{% csrf_token %}
+
+<table width="40%" id="tab" >
+<tr>
+
+<td><input class=""   type="checkbox" name="id1" > Zone 1 (2$)
+<tr>
+<td><input class=""   type="checkbox" name="id2" > Zone 2 (4$)
+<tr>
+<td><input class=""   type="checkbox" name="id3" > Zone 3 (6$)
+
+<tr>
+<td><input class="form-control"   type="submit" value="Purchase">
+</form>
+</table>
+
+<form method="post" action="/bookbusaction2/">
+{% csrf_token %}
+<br><br>
+<table width="40%" id="tab" >
+<tr>
+<th>Buy Bus Card (40$)
+<tr>
+<td><input class="form-control"   type="submit" value="Purchase">
+</form>
+</table>
+
+
+<hr><br>
+<h3>Booked Bus Tickets</h3><br>
+<table width="90%" id="tab" >
+<tr><th>#<th>Type<th width>Cost<th>Date
+{% for d1 in data %}
+
+<TR><TD>{{forloop.counter}}<TD>{{d1.typ_e}}<TD>${{d1.cost}}<TD>{{d1.dat_e}}
+
+{% endfor %}
+
+</table>
+
+
+{% endblock %}

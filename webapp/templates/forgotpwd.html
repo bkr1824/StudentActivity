@@ -1,0 +1,25 @@
+
+
+{% extends 'base.html' %}
+{% block content %}
+
+{% load static %}
+{{msg}}
+	<form method="post" action="/forgotpwd/">
+	{% csrf_token %} 
+	<center><h2><strong>Get your account details</strong></h3>
+<br>
+</center>
+
+	<table id="tab" width="60%" align="center">
+<tr>
+	<th>Enter Your Email</td>
+	<td>    <input type="email" name="email" class="form-control" required>
+<tr>
+
+		<td><td> <button type="submit" id="" >Send Login Deatils</button>
+
+	</form>
+</table>
+
+{% endblock %}

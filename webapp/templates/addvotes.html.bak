@@ -1,0 +1,34 @@
+
+{% extends 'u_base.html' %}
+{% load static %}
+
+{% block content %}
+<center>
+	<font size="" color="#ff0000"><strong>{{msg}}</strong></font>
+	<b>
+	
+
+<h2>View Cadidates </h2><br>
+
+<br>
+
+<hr><br>
+<table id="tab" width="70%" border>
+<tr><th>#<th>Candidate Name<th > <th>Vote
+{% for d1 in data %}
+
+<TR><TD>{{forloop.counter}}<TD>{{d1.name}}<TD><center><img  src="{{baseUrl}}/{{d1.image}}" alt="" width="200" height="150">
+<TD>
+<form method="post" action="/addvotes/">
+
+		{% csrf_token %} 
+<input type="hidden" name="id" value="{{d1.id}}">
+<input type="submit" value="Vote">
+</form>
+
+{% endfor %}
+
+</table>
+
+
+{% endblock %}

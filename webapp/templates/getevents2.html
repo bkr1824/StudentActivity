@@ -1,0 +1,28 @@
+{% extends 'u_base.html' %}
+{% block content %} 
+
+
+
+<h3>View Events</h3>
+
+<table width="100%" id="tab" >
+<tr><th>#<th>Name<th width="60%">Description<th>Date of the Event<th>
+
+{% for d1 in data %}
+
+<TR><TD>{{forloop.counter}}<TD>{{d1.name}}<TD >{{d1.description}}<TD>{{d1.dat_e}}<td>
+
+<form method="get" action="/bookevent/">
+<input type="hidden" name="id" value="{{d1.id}}">
+<input type="hidden" name="name" value="{{d1.name}}">
+<input type="hidden" name="des" value="{{d1.description}}">
+<input type="hidden" name="dat_e" value="{{d1.dat_e}}">
+
+	<input type="submit" value="Select">
+</form>
+{% endfor %}
+
+</table>
+
+
+{% endblock %}

@@ -1,0 +1,43 @@
+
+{% extends 'a_base.html' %}
+{% block content %}
+<center>
+	<font size="" color="#ff0000"><strong>{{msg}}</strong></font>
+	<b>
+	
+
+<h2>Add Books in Library</h2><br>
+<form method="post" action="/addlib/">
+	{% csrf_token %} 
+				<table id="tab">
+
+                    <tr><td><input class="form-control"  type="text" name="title" placeholder="Book title" required="required"   size="50"  ></input>
+                    <td><input class="form-control"  type="text" name="author" placeholder="Author of the book" required="required"   size="50"  ></input>
+                    <tr><td><input class="form-control"  type="text" name="ISBN" placeholder="ISBN" required="required"   size="50"  onblur="validate1()"></input>
+                    <td><input class="form-control"  type="text" name="location" placeholder="Location in Library" required="required"  size="50"   onblur="validate3()"></input>
+					
+					<tr><td><td><input type="submit" class="form-control" value="Add"  size="50"  >
+                
+</table>
+</form><br>
+
+<br>
+
+<h2>Add Books of stores</h2><br>
+<form method="post" action="/addbook/">
+	{% csrf_token %} 
+				<table id="tab">
+
+                    <tr><td><input class="form-control"  type="text" name="title" placeholder="Book title" required="required"   size="50"  ></input>
+                    <td><input class="form-control"  type="text" name="author" placeholder="Author of the book" required="required"   size="50"  ></input>
+                    <tr><td><input class="form-control"  type="text" name="ISBN" placeholder="ISBN" required="required"   size="50"  onblur="validate1()"></input>
+                    <td><input class="form-control"  type="text" name="bookstore" placeholder="Bookstore" required="required"  size="50"   onblur="validate3()"></input>
+					
+                    <tr><td><input class="form-control"  type="number" min=1 name="cost" placeholder="Cost" required="required"  size="50"   onblur="validate3()"></input>
+					
+                   <td><input type="submit" class="form-control" value="Add"  size="50"  >
+                
+</table>
+</form><br>
+
+{% endblock %}
